@@ -15,6 +15,13 @@ export class Livro {
   @Column("int")
   nota: number;
 
+  @ManyToOne(() => Leitor, leitor => leitor.livrosEmprestados, {
+    eager: true, // Carrega o leitor automaticamente ao buscar o livro 
+    nullable: true,
+  })
+  @JoinColumn({ name: "emprestadoParaLeitorId" })
+  emprestadoPara: Leitor;
+
   @Column({ type: "text", nullable: true })
   comentario: string;
 

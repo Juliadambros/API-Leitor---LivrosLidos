@@ -43,7 +43,7 @@ livrosRouter.post(
       nota: Joi.number().integer().min(1).max(5).required(),
       comentario: Joi.string().allow('', null),
       data_leitura: Joi.date().required(),
-      emprestadoParaLeitorId: Joi.string().uuid().required(),
+      emprestadoParaLeitorId: Joi.string().uuid().allow(null).required(),
     },
   }),
   async (req, res, next) => {
@@ -68,7 +68,7 @@ livrosRouter.put(
       nota: Joi.number().integer().min(1).max(5).required(),
       comentario: Joi.string().allow('', null),
       data_leitura: Joi.date().required(),
-      emprestadoParaLeitorId: Joi.string().uuid().required(),
+      emprestadoParaLeitorId: Joi.string().uuid().allow(null).required(),
     },
   }),
   async (req, res, next) => {

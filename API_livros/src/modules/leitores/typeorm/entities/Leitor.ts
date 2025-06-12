@@ -21,6 +21,9 @@ export class Leitor {
   @Column()
   genero_favorito: string;
 
+  @OneToMany(() => Livro, livro => livro.emprestadoPara)
+  livrosEmprestados: Livro[];
+
   @CreateDateColumn()
   created_at: Date;
 
